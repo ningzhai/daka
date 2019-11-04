@@ -1,0 +1,97 @@
+<!--create.wxml-->
+<view class="page">
+
+  <view class="page__bd_spacing gbcolor" hidden="true">
+
+    <view class='ydkang'>
+
+
+      <view class='kls'>
+        <image src="/images/qdd.png" class="img"></image>
+        我发的红包个数
+        <view class="zizi">{{statistics.totalCheckInCount}}</view>
+      </view>
+
+      <view class='klf'>
+        <image src="{{userInfo.avatarUrl}}" class="yuan"></image>
+        <view class='nic'>{{userInfo.nickName}}</view>
+      </view>
+
+      <navigator url="/pages/orders/orders" class='klb'>
+        <button class="weui-btn sm-left" type="primary">查看我的红包</button>
+      </navigator>
+
+
+    </view>
+  </view>
+
+
+
+  <view class=" bgc2">
+    <view class="page__bd page__bd_spacing " hidden="true">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <label class="weui-label">金额</label>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" id="amount" bindinput="bindInput" value="{{defaultValue}}" placeholder="元" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <label class="weui-label">人数</label>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" id="totailCheckCount" bindinput="bindInput" value="{{defaultValue}}" placeholder="人" />
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="page__bd page__bd_spacing ">
+
+
+      <view class="weui-cells weui-cells_after-title" hidden="true">
+        <navigator url="/pages/draw/draw" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__bd" style="color:#777;font-family:UICTFontTextStyleBody;">余额</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access" style="color:#777">￥{{account.balance}}</view>
+        </navigator>
+        <!--<view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd" style="color:#777;font-family:UICTFontTextStyleBody;">用余额￥{{account.balance}}抵扣</view>
+          <view class="weui-cell__ft" style="margin-right:-10px">
+            <switch checked="{{useBalance}}" bindchange="bindInput" id="useBalance" />
+          </view>
+        </view>-->
+        <view class="weui-cell weui-cell_switch" style="height:30px;">
+          <view class="weui-cell__bd" style="color:#777;font-family:UICTFontTextStyleBody;">扣除</view>
+          <view class="weui-cell__ft" style='margin-right: 12px;color:#777'>
+            ￥{{balanceAmount}}
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_switch" style="height:30px;">
+          <view class="weui-cell__bd" style="color:#777;font-family:UICTFontTextStyleBody;">实付</view>
+          <view class="weui-cell__ft" style='margin-right: 12px;color:#777'>
+            ￥{{payAmount}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-btn-area">
+    <!-- <button class="weui-btn jkdiy" disabled="{{!isAgree}}" type="{{isAgree?'primary':'disabled'}}" bindtap="save">发表</button>-->
+<button class="weui-btn jkdiy" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">满仓</button>
+<button class="weui-btn jkdiy" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">75%</button>
+<button class="weui-btn jkdiy" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">50%</button>
+<button class="weui-btn jkdiy" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">30%</button>
+<button class="weui-btn jkdiy" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">25%</button>
+<button class="weui-btn jkdiy" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">空仓</button>
+<!-- 
+<button class="weui-btn jkdiy" disabled="{{!isAgree}}" type="{{isAgree?'primary':'disabled'}}" data-zhuanle='1' bindtap="updatearticle">赚了</button>    
+<button class="weui-btn jkdiy" disabled="{{!isAgree}}" type="{{isAgree?'primary':'disabled'}}" data-zhuanle='2' bindtap="updatearticle">亏了</button>
+<button class="weui-btn jkdiy" disabled="{{!isAgree}}" type="{{isAgree?'primary':'disabled'}}" data-zhuanle='3' bindtap="updatearticle">空仓</button>
+-->
+      <!--type="disabled"-->
+    </view>
+  </view>
+</view>

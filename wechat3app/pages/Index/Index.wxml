@@ -1,0 +1,64 @@
+<!--pages/article/payHost.wxml-->
+<view class="page">
+  <view class="page__bd page__bd_spacing mtt" style='padding-bottom: 0px'>
+    <view style='height:200px; text-align:center;padding-top:100px;'>
+    <view class="nav">
+    <image src="{{hostAvatarUrl}}" style="width:50px; height:50px; " class="img"></image>
+    </view>
+    <view style=' clear: both'></view>
+    <view class="nav">
+    {{hostNickName}}
+    </view>
+<!-- 
+      <view class='tx-s'>
+         码主人昵称
+      </view>
+      <view class='tx-s'>
+        支付金额
+        <i class='tx-b'>{{balance}}</i>
+        <i class='tx-a'>元</i>
+      </view>
+-->      <view style=' clear: both'>
+      </view>
+    </view>
+  </view>
+  <view class="weui-btn-area" style="margin-bottom:20px; margin-top:10px;">
+  <!-- 
+<button hidden="{{shouquandengluhidden}}" class="weui-btn jkdiy" type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">立即授权</button>
+-->
+  </view>
+</view>
+
+<view style=' clear: both; height:15px'>
+</view>
+
+
+<!-- 
+<dialog id='dialog' 
+      title='登录提示' 
+      content='小程序需要您的授权才能提供更好的服务哦' 
+      confirmText='知道了'
+      bind:confirmEvent='confirmEvent'
+      bind:bindGetUserInfo='bindGetUserInfo'>
+</dialog>  
+<view class="page" hidden="{{!vs}}">
+  <view class=" bgc2" hidden>
+    <view class=" bgc3 page__bd_spacing">
+      <view class="weui-cells weui-cells_after-title ">
+        <view class="weui-cell ts">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" id="content" value="{{content}}" bindinput="bindInput" maxlength="200" placeholder="写下你想记录的一切" style="height: 25em;font-size: 14px;" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-btn-area">
+      <button class="weui-btn jkdiy" disabled="{{!changed}}" type="{{changed?'primary':'disabled'}}" bindtap="save">保存</button>
+      type="disabled"
+    </view>
+  </view>
+  <view class="bgc2" style='margin-top: {{headheight}}px;'>
+    <button bindtap='gosleep' class="weui-btn jkdiy sleep">我真的要睡觉了</button>
+  </view>
+</view>
+-->

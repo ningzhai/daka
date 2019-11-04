@@ -1,0 +1,186 @@
+<view class="page">
+<!-- 
+<scroll-view scroll-top="{{scrollTop}}" style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true"   bindscroll="scroll" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDownRefresh" class="weui-panel weui-panel_access">-->
+<view class='bh'><!-- -->
+<!--
+<navigator open-type="redirect" url="/pages/create/create" class="jia jia-small" style='padding:0px;maring:0px;'>
+<navigator hidden="{{nothostall}}" open-type="navigate" url="/pages/create/create" class="jia jia-small" style='padding:0px;maring:0px;'>
+      <image src="/images/plus.png" class="img"></image>     
+</navigator>
+ hidden="{{hostall}}"
+ -->
+ <!-- 每天只能发一篇文章
+<navigator open-type="navigate" bindtap="listenerButton" class="jia jia-small" style='padding:0px;maring:0px;'>
+      <image src="/images/plus.png" class="img"></image>     
+</navigator>
+-->
+
+</view>
+<!-- <button class="weui-btn weui-btn_default" hidden='{{tophiddenstatus1}}' disabled="" type="" bindtap="">...</button> -->
+<!-- 
+<button class="weui-btn weui-btn_default" disabled="" type="" bindtap="enterDrawerPage">提现</button>
+<button class="weui-btn weui-btn_default" disabled="" type="" bindtap="generateSelfErWeiMarker">生成自己的二维码</button>
+<button disabled="" type="" style="width:280px;height:50px;" bindtap="scanHostErWeiMa">扫图片二维码</button>
+-->  <view class="lodinggo xina none" wx:if="{{showShare}}">
+    <!--“分享扫二维码”条件上面加xina，默认none-->
+    <view class="bacfff textc">
+      <image src="/images/cos1.png" mode="aspectFill" bindtap="hideShare" class="cos"></image>
+      <image src="{{qrurl}}" mode="aspectFill" style="width:100%"></image>
+      <view style="font-size:12px; color:#999; line-height:14px; background-color:#f8f8f8; border-radius:30px; padding:6px 0px; ">
+        <view>分享给好友，使用微信扫一扫</view>
+      </view>
+      <view style="margin-top:20px">
+        <view>
+          <button class="weui-btn jkdiy" open-type="share">立即分享</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+    <!--
+  <view hidden="{{hostall}}" class="ttxx" style='height:{{headheight}}px;margin-bottom:{{marginbottom}}px;'>
+    <view class="ccde">{{userInfo.nickName}}</view>
+    <image src="{{userInfo.avatarUrl}}" class="img"></image>
+    <image src="{{userInfo.avatarUrl}}" hidden="{{hostall}}" class="img" bindtap="listenerButton"></image>
+    <image src="{{userInfo.avatarUrl}}" hidden="{{nothostall}}" class="img"></image>
+  </view>
+     -->
+  
+
+<view wx:for="{{order}}" wx:key="order" wx:for-index="idx" wx:for-item="order1">
+<!-- {{index}}:{{item.Id}} {{order}}={{item}};-->
+
+
+  <view class="bghj" wx:if="{{!shareIng}}" hidden="{{order1.articleshowhiddensign}}">
+    <view class="ltlog"><!-- listenerRenewMoney -->
+      <image src="{{order1.hostAvatarUrl}}" hidden="{{hostall}}" class="img" id="hello_id" data-article_host="{{order1.OpenId}}" ></image><!-- bindtap="listenerRenewMoney" "-->
+      <image src="{{order1.hostAvatarUrl}}" hidden="{{nothostall}}" class="img"></image>
+    </view>
+    <view class="page__bd rightop">
+      <view class="lkjh" hidden="true">
+        <view bindtap="showUsers" class="ybbtn">
+          ￥{{order1.amount}}
+
+        </view>
+      </view>
+      <view class="vff">
+        <view class="nav-tx">
+          <view class="ti">
+            <!--xs-->
+            <view class="wona">
+<!--              <i>{{order.nickName}}</i>
+ -->              <i class="zhuanle{{order1.zhuanle}}">{{order1.hostNickName}}</i>
+            </view>
+            <!--移动原位置-->
+          </view>
+          <view class="vo">
+            <text selectable="true" decode="{{true}}">{{order1.content}}</text>
+          </view>
+        </view>
+        <view class="dingzhi page__bd_spacing">
+          <view class="weui-uploader__bd" id='xiangq'>
+            <view class="weui-uploader__files" id="uploaderFiles">
+            <!-- 不显示图片
+              <block wx:for="{{order1.imageUrls}}" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}" data-id_in_array="{{idx}}">
+                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                </view>
+              </block>
+              -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="zhuanfa">
+    <!-- 
+      <i class="times"><image src="/images/po.png" class="img"></image>{{users.totalCount}}/{{order.totalCheckCount}}</i>
+-->      <i class="time"><!--{{order1.publishDate}}<text decode="{{true}}">&nbsp;&nbsp;</text><text data-order-id="{{idx}}" data-article-id="{{order1.Id}}" hidden="{{order1.articledeletesign}}" bindtap="deleteArticle" >删除</text>
+
+<text data-order-id="{{idx}}" data-article-id="{{order1.Id}}">经度：{{order1.longitude}}，纬度{{order1.latitude}}</text>
+
+<text data-order-id="{{idx}}" data-article-id="{{order1.Id}}" hidden="{{!order1.tousu}}" bindtap="touSuHost">差评</text><text decode="{{true}}">&nbsp;&nbsp;</text><text data-order-id="{{idx}}" data-secondhostopenid="{{order1.OpenId}}" hidden="{{!order1.xufei}}" bindtap="xuFeiHost">继续关注</text> --></i>
+    </view>
+</view>
+    <view class="zhuanyihuan" hidden='true'>
+      <i class="ki"><image src="/images/zfy.png" class="img" bindtap="showShare"></image></i>
+      <view>
+        <image src="/images/dds.jpg" class="img" bindtap="changeUsers"></image>
+        <i>
+        <image wx:for="{{users.items}}" wx:key="users.items" src="{{item}}" class="img"></image>
+      </i> </view>
+    </view>
+<button class="weui-btn weui-btn_default" hidden='{{order1.hiddenstatus1}}' disabled="" type="" bindtap="">刷新</button>
+
+    <view style="border-top:0px solid red;clear:  both; height:50px;" hidden="{{order1.articleshowhiddensign}}"></view>
+
+
+  </view>
+  <!-- 
+</scroll-view>
+-->
+
+  <view class="orderbody" style="display:none;">
+    <view class="avatar">
+      <image src="{{userInfo.avatarUrl}}" style=""></image>
+    </view>
+    <view class="content">
+      <view>{{userInfo.nickName}}</view>
+      <view>{{order.content}}</view>
+      <view class="contentImage">
+        <image wx:for="{{order.imageUrls}}" wx:key="order.imageUrls" src="{{item}}" style="" id="{{item}}" bindtap="previewImage"></image>
+      </view>
+    </view>
+    <image style="width: 200px; height: 200px; background-color: #eeeeee;" src="{{qrurl}}"></image>
+  </view>
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet" >
+<!-- <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>-->
+<!--        <action-sheet-item bindtap="scanHostErWeiMa">扫一扫</action-sheet-item>-->
+         <!-- <action-sheet-item bindtap="generateSelfErWeiMarker">!-- 我的 --小程序码</action-sheet-item> -->
+ <!--       <action-sheet-item>用户数({{userInfo.number_of_users}})</action-sheet-item>
+        <action-sheet-item bindtap="OnlySearchArticleHost" >内容管理</action-sheet-item>  -->
+<!--         <action-sheet-item bindtap="enterDrawerPage">余额</action-sheet-item>-->
+        <action-sheet-item bindtap="enterCreaterPage">发表</action-sheet-item>
+<!-- 
+    <block wx:for-items="{{actionSheetItems}}" > 
+        <action-sheet-item >{{item}}</action-sheet-item>
+    </block>
+-->
+    <!--自动隐藏action-sheet-->
+    <action-sheet-cancel>取消</action-sheet-cancel>
+</action-sheet>
+<!--
+<action-sheet hidden="{{actionRenewSheetHidden}}" bindchange="listenerRenewMoneyActionSheet" >
+        <action-sheet-item bindtap="RenewArticleMaYi">继续关注</action-sheet-item>
+    <action-sheet-cancel>取消</action-sheet-cancel>
+</action-sheet>
+ -->
+ </view>
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">谨慎使用</view>
+  <view class="modal-content">
+  点的人多了这条内容会自动删除
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">差评</view>
+  </view>
+</view>
+
+<!--确定删除弹窗-->
+<view class="modal-mask" bindtap="hideDeleteModal" catchtouchmove="preventTouchMove" wx:if="{{showDeleteModal}}"></view>
+<view class="modal-dialog" wx:if="{{showDeleteModal}}">
+<!--   <view class="modal-title">删除文章确认</view>
+  <view class="modal-content">
+  确定删除吗?
+  </view> -->
+  <view class="modal-title-shanchu">确定删除吗?</view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onDeleteCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onDeleteConfirm" data-status="confirm">删除</view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/Index/Index",
+    "pages/detail/detail",
+    "pages/create/create",
+    "pages/create2/create",
+    
+    "end"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f46f5a",
+    "navigationBarTitleText": "附近股民",
+    "navigationBarTextStyle": "white"
+  },
+"permission": {
+  "scope.userLocation": {
+    "desc": "你的位置信息将用于小程序位置接口的效果展示"
+  }
+} 
+}
